@@ -8,10 +8,7 @@ podTemplate(yaml: '''
         command:
         - sleep
         args:
-        - 99d
-        volumeMounts:
-        - name: shared-storage
-          mountPath: /mnt      
+        - 99d  
       - name: centos
         image: centos
         command:
