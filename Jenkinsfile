@@ -35,6 +35,23 @@ podTemplate(yaml: '''
         }
         }
         container('gradle'){
+
+           stage("Execute Acceptance Test and Generate Report") {
+                    try {
+                        sh '''
+        	           chmod +x gradlew
+                     ./gradlew acceptanceTest -Dcalculator.url=http://calculator-service:8080
+                        '''
+                    } catch (Exception E) {
+                        echo 'Failure detected in Test Execution'
+                    }
+
+                    publishHTML (target: [
+                        reportDir: 'build/reports/tests/acceptanceTest',
+                        reportFiles: 'index.html',
+                        reportName: "Cucumber Execution Report"
+                    ])                       
+                }
 		
 		stage("Test using Curl Command") {
 		sh '''
