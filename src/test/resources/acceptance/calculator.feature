@@ -8,3 +8,8 @@ Feature: Calculator
     Given I have dividend and divisor: 6 and 3
     When the calculator divides them
     Then I receive 2 as the quotient
+
+    Scenario: Divide two numbers
+    Given I have dividend and divisor: 4 and 2
+    When the calculator divides them
+    Then I receive 2 as the quotient
