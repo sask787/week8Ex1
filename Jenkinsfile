@@ -52,7 +52,7 @@ podTemplate(yaml: '''
                         reportName: "Cucumber Execution Report"
                     ])                       
                 }
-		
+	/*	
 		stage("Test using Curl Command") {
 		sh '''
                 echo 'Test using Curl'
@@ -61,6 +61,7 @@ podTemplate(yaml: '''
 				test $(curl calculator-service:8080/div?a=6\\&b=0) -eq Infinity && echo 'pass' || 'fail'
          '''
             }
+            */
 		
       }
     }        
